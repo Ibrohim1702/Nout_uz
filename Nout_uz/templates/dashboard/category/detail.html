@@ -1,0 +1,53 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Category - Detail{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><b>Category Detail</b></h4>
+            <p class="category"><a>Categoryning toliq infomatsiyasi</a></p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th><b>Key</b></th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Id</b></td>
+                        <td>{{ ctg.id }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Content</b></td>
+                        <td>{{ ctg.content }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Slug</b></td>
+                        <td>{{ ctg.slug }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="{% url 'dash_ctg_edit' pk=ctg.id %}">
+    <button type="button" class="btn btn-wd btn-info  btn-rotate">
+        <span class="btn-label">
+            <i class="ti-settings"></i>
+        </span>
+        Edit
+    </button>
+    </a>
+    <a href="{% url 'dash_ctg_conf' pk=ctg.id %}">
+    <button type="button" class="btn btn-wd btn-danger">
+        <span class="btn-label">
+            <i class="fa fa-times"></i>
+        </span>
+        Delete
+    </button>
+    </a>
+</div>
+
+{% endblock %}

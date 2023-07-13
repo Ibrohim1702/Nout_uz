@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Category - Form{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-6">
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="card-header">
+                <h4 class="card-title">
+                    Add Category
+                </h4>
+            </div>
+            <div class="card-content">
+                <div class="form-group">
+                    <label>Content</label><br>
+                    {{ forms.content }}
+                </div>
+                <div class="form-group">
+                    <label>Slug</label><br>
+                    {{ forms.slug }}
+                </div>
+                <a href="">
+                <button type="submit" class="btn btn-success">
+                    <span class="btn-label">
+                        <i class="fa fa-check"></i>
+                </span>
+                    Save
+                </button>
+                </a>
+                <a href="{% url 'dashboard_ctg_list' %}">
+                    <button type="button" class="btn btn-info">
+                        <span class="btn-label">
+                            <i class="ti-arrow-left"></i>
+                            Back
+                        </span>
+                    </button>
+                </a>
+            </div>
+        </form>
+    </div> <!-- end card -->
+</div> <!--  end col-md-6  -->
+
+{% endblock %}

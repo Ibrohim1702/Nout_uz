@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Product - Delete{% endblock %}
+{% load static %}
+{% block content %}
+
+<h3>Siz shu {{ product.name }} o'chirmoqchimsiz ?</h3>
+
+<a href="{% url 'dash_pro_delete' dlt=product.id %}">
+<button type="button" class="btn btn-wd btn-success  btn-rotate">
+    <span class="btn-label">
+        <i class="fa fa-check"></i>
+    </span>
+    Ha
+</button>
+</a>
+
+<a href="{% url 'dashboard_pro_list' %}">
+<button type="button" class="btn btn-wd btn-danger">
+    <span class="btn-label">
+        <i class="fa fa-times"></i>
+    </span>
+    Yo'q
+</button>
+</a>
+{% endblock %}

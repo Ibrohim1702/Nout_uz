@@ -1,0 +1,56 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Product - List{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><b>Product Detail</b></h4>
+            <p class="category"><a>Productning to'liq infomatsiyasi</a></p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th><b>№</b></th>
+                <th><b>ID</b></th>
+                <th><b>Name</b></th>
+                <th><b>Category</b></th>
+                <th><b>Actions</b></th>
+                </thead>
+                <tbody>
+                {% for i in products %}
+                    <tr>
+
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.name }}</td>
+                        <td><a href="{% url 'dash_pro_detail' pk=i.id %}">{{ i.ctg }}</a></td>
+                        <td class="td-actions">
+                            <a href="{% url 'dash_pro_detail' pk=i.id %}" rel="tooltip" title="View Product" class="btn btn-info btn-simple btn-xs">
+                                <i class="ti-user"></i>
+                            </a>
+                            <a href="{% url 'dash_pro_edit' pk=i.id %}" rel="tooltip" title="Edit Product" class="btn btn-success btn-simple btn-xs">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <a href="{% url 'dash_pro_conf' pk=i.id %}" rel="tooltip" title="Remove Product" class="btn btn-danger btn-simple btn-xs">
+                                <i class="ti-close"></i>
+                            </a>
+                        </td>
+                {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="{% url 'dash_pro_add' %}">
+    <button type="button" class="btn btn-wd btn-success">
+        <span class="btn-label">
+            <i class="fa fa-plus"></i>
+        </span>
+        Add product
+    </button>
+    </a>
+</div>
+
+{% endblock %}

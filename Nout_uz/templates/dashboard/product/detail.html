@@ -1,0 +1,88 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Product - Detail{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><b>Product Detail</b></h4>
+            <p class="category"><a>Productning to'liq infomatsiyasi</a></p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th><b>Key</b></th>
+                <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Id</b></td>
+                        <td>{{ product.id }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Name</b></td>
+                        <td>{{ product.name }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Img</b></td>
+                        <td>{{ product.img }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>Manitor</b></td>
+                        <td>{{ product.manitor }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>Cpu</b></td>
+                        <td>{{ product.cpu }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>Gpu</b></td>
+                        <td>{{ product.gpu }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>Ram</b></td>
+                        <td>{{ product.ram }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Hard</b></td>
+                        <td>{{ product.hard }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>Price</b></td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                     <tr>
+                         <td><b>ctg</b></td>
+                        <td>{{ product.ctg }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Brds</b></td>
+                        <td>{{ product.brds }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Short_description</b></td>
+                        <td>{{ product.short_description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <a href="{% url 'dash_pro_edit' pk=product.id %}">
+    <button type="button" class="btn btn-wd btn-info  btn-rotate">
+        <span class="btn-label">
+            <i class="ti-settings"></i>
+        </span>
+        Edit
+    </button>
+        </a>
+    <a href="{% url 'dash_pro_conf' pk=product.id %}">
+    <button type="button" class="btn btn-wd btn-danger">
+        <span class="btn-label">
+            <i class="fa fa-times"></i>
+        </span>
+        Delete
+    </button>
+    </a>
+</div>
+{% endblock %}

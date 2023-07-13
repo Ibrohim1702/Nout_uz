@@ -1,0 +1,53 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Category - Detail{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><b>Brands Detail</b></h4>
+            <p class="category"><a>Brandlarning toliq infomatsiyasi</a></p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th><b>Key</b></th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Id</b></td>
+                        <td>{{ brd.id }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Content</b></td>
+                        <td>{{ brd.content }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Slug</b></td>
+                        <td>{{ brd.slug }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="{% url 'dash_brd_edit' pk=brd.id %}">
+    <button type="button" class="btn btn-wd btn-info  btn-rotate">
+        <span class="btn-label">
+            <i class="ti-settings"></i>
+        </span>
+        Edit
+    </button>
+    </a>
+    <a href="{% url 'dash_brd_conf' pk=brd.id %}">
+    <button type="button" class="btn btn-wd btn-danger">
+        <span class="btn-label">
+            <i class="fa fa-times"></i>
+        </span>
+        Delete
+    </button>
+    </a>
+</div>
+
+{% endblock %}
